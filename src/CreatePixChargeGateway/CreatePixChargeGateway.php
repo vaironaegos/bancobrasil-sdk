@@ -35,6 +35,12 @@ final class CreatePixChargeGateway
             "X-Application-Key" => $this->devAppId
         ];
 
+        $pixKey = $pixData->destinationKey;
+
+        if (in_array($pixData->pixKeyType, [PixKeyType::PHONE, PixKeyType::CNPJ, PixKeyType::CPF])) {
+            $pixKey = preg_replace("/[^0-9]/", "", $pixData->destinationKey);
+        }
+
         $body = [
             'calendario' => [
                 'expiracao' => (string)$pixData->expiration
@@ -46,7 +52,7 @@ final class CreatePixChargeGateway
             'valor' => [
                 'original' => (string)$pixData->amount
             ],
-            'chave' => preg_replace("/[^0-9]/", "", $pixData->destinationKey),
+            'chave' => $pixKey,
             'solcnpjitacaoPagador' => trim($pixData->description),
         ];
 
@@ -54,6 +60,8 @@ final class CreatePixChargeGateway
 
         try {
             $response = $this->httpClient->put("/pix/v2/cob/{$txId}", [
+                'cert' => $pixData->certFile,
+                'ssl_key' => $pixData->certFile,
                 'headers' => $headers,
                 'json' => $body
             ]);
@@ -78,6 +86,6 @@ final class CreatePixChargeGateway
 
         $responsePayload = json_decode($response->getBody()->getContents(), true);
 
-        return new CreatePixChargeOutput($txId, $responsePayload['location'], $responsePayload);
+        return new CreatePixChargeOutput($txId, $responsePayload['pixCopiaECola'], $responsePayload);
     }
 }

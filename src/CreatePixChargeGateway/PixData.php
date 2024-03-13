@@ -9,6 +9,8 @@ final class PixData
         public readonly string $senderCpf,
         public readonly float $amount,
         public readonly string $destinationKey,
+        public readonly PixKeyType $pixKeyType,
+        public readonly string $certFile,
         public readonly string $description = '',
         public readonly int $expiration = 36000,
     ) {

@@ -9,6 +9,7 @@ use AstrotechLabs\BancoBrasilPix\AuthenticateGateway\AuthenticationOutput;
 use AstrotechLabs\BancoBrasilPix\CreatePixChargeGateway\CreatePixChargeException;
 use AstrotechLabs\BancoBrasilPix\CreatePixChargeGateway\CreatePixChargeGateway;
 use AstrotechLabs\BancoBrasilPix\CreatePixChargeGateway\PixData;
+use AstrotechLabs\BancoBrasilPix\CreatePixChargeGateway\PixKeyType;
 use ReflectionClass;
 use Tests\TestCase;
 use Tests\Trait\HttpClientMock;
@@ -47,10 +48,12 @@ final class CreatePixChargeGatewayTest extends TestCase
         );
 
         $createPixChargeGateway->createCharge(new PixData(
-            self::$faker->name(),
-            '01234567890',
-            10,
-            '50650051000137'
+            senderName: self::$faker->name(),
+            senderCpf: '01234567890',
+            amount: 10,
+            destinationKey: '01234567890',
+            pixKeyType: PixKeyType::CPF,
+            certFile: '/app/storage/bb-certificate.pem'
         ));
     }
 
@@ -73,10 +76,12 @@ final class CreatePixChargeGatewayTest extends TestCase
         );
 
         $createPixChargeGateway->createCharge(new PixData(
-            self::$faker->name(),
-            '01234567890',
-            10,
-            '50650051000137'
+            senderName: self::$faker->name(),
+            senderCpf: '01234567890',
+            amount: 10,
+            destinationKey: '01234567890',
+            pixKeyType: PixKeyType::CPF,
+            certFile: '/app/storage/bb-certificate.pem'
         ));
     }
 
@@ -95,10 +100,12 @@ final class CreatePixChargeGatewayTest extends TestCase
         );
 
         $result = $createPixChargeGateway->createCharge(new PixData(
-            self::$faker->name(),
-            '01234567890',
-            10,
-            '50650051000137'
+            senderName: self::$faker->name(),
+            senderCpf: '01234567890',
+            amount: 10,
+            destinationKey: '01234567890',
+            pixKeyType: PixKeyType::CPF,
+            certFile: '/app/storage/bb-certificate.pem'
         ));
 
         $this->assertNotEmpty($result->txId);

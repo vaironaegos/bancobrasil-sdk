@@ -11,7 +11,7 @@ final class CreatePixChargeOutput implements JsonSerializable
     public function __construct(
         public readonly string $txId,
         public readonly string $copyPasteKey,
-        public readonly array $responsePayload
+        public readonly array $payloadResponse
     ) {
     }
 

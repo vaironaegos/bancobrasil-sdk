@@ -1,24 +1,22 @@
 {
-    "calendario": {
-        "criacao": "2020-09-09T20:15:00.358Z",
-        "expiracao": 3600
+    "calendario":{
+        "criacao":"2024-03-13T18:44:58.16-03:00",
+        "expiracao":36000
     },
-    "txid": "7978c0c97ea847e78e8849634473c1f1",
-    "revisao": 0,
-    "loc": {
-        "id": 789,
-        "location": "pix.example.com/qr/v2/9d36b84fc70b478fb95c12729b90ca25",
-        "tipoCob": "cob"
+    "devedor":{
+        "cpf":"01234567890",
+        "nome":"Nome da Empresa"
     },
-    "location": "pix.example.com/qr/v2/9d36b84fc70b478fb95c12729b90ca25",
-    "status": "ATIVA",
-    "devedor": {
-        "cnpj": "12345678000195",
-        "nome": "Empresa de Serviços SA"
+    "valor":{
+        "modalidadeAlteracao":0,
+        "original":"100.00"
     },
-    "valor": {
-        "original": "567.89"
-    },
-    "chave": "a1f4102e-a446-4a57-bcce-6fa48899c1d1",
-    "solicitacaoPagador": "Informar cartão fidelidade"
+    "chave":"a1f4102e-a446-4a57-bcce-6fa48899c1d1",
+    "solicitacaoPagador":"Solicitacao Pix",
+    "infoAdicionais":[],
+    "txid":"6102bffe0d7d6ad1c77c5a2b9cf3d5fe",
+    "revisao":0,
+    "location":"qrcodepix.bb.com.br/pix/v2/3672a6c8-a06c-40e0-a804-619e3b630e08",
+    "status":"ATIVA",
+    "pixCopiaECola":"00020101021226850014br.gov.bcb.pix2563qrcodepix.bb.com.br/pix/v2/3672a6c8-a06c-40e0-a804-619e3b630e085204000053039865406100.005802BR5919EMPRESA6009SAO PAULO62070503***6304965F"
 }
